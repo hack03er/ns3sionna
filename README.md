@@ -32,7 +32,7 @@ cd ns-allinone-3.40
 
 ```
 git clone https://github.com/tkn-tub/ns3sionna.git
-cd ns3-sionna/
+cd ns3sionna/
 ./install_packages.sh
 ./bootstrap.sh
 ```

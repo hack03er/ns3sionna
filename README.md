@@ -46,8 +46,7 @@ cd ../ns-3.40/
 
 4. Build sionna server
 ```
-cd ../ns3sionna/
-cd sionna_server/
+cd ../ns3sionna/sionna_server/
 python3 -m venv sionna-venv
 source sionna-venv/bin/activate
 python3 -m pip install -r requirements.txt # or requirements_gpu.txt if you want to use GPUs

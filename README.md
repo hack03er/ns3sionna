@@ -31,7 +31,7 @@ cd ns-allinone-3.40
 2. Download ns3-sionna
 
 ```
-git clone https://git.tu-berlin.de/azubow/ns3-sionna.git
+git clone https://github.com/tkn-tub/ns3sionna.git
 cd ns3-sionna/
 ./install_packages.sh
 ./bootstrap.sh

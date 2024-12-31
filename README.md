@@ -1,6 +1,8 @@
 ns3sionna
 ============
 
+<img src="./res/ns3sionna_logo_small.jpg" width="15%" alt="Logo" style="text-align: left; vertical-align: middle;">
+
 ns3sionna is a software module that brings realistic channel simulation using ray tracing from 
 Sionna (https://nvlabs.github.io/sionna/) to the widely used ns-3 network simulator (https://github.com/nsnam).
 

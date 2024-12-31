@@ -7,6 +7,6 @@ protoc --python_out=../sionna_server/ message.proto
 
 echo "Create symlink"
 cd ../../ns-3.40/scratch/
-ln -s ../../ns3-sionna/ns3-sionna/ .
+ln -s ../../ns3sionna/ns3-sionna/ .
 
 cd ..

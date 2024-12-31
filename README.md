@@ -46,7 +46,7 @@ cd ../ns-3.40/
 
 4. Build sionna server
 ```
-cd ../ns3-sionna/
+cd ../ns3sionna/
 cd sionna_server/
 python3 -m venv sionna-venv
 source sionna-venv/bin/activate
@@ -56,7 +56,7 @@ python3 test_imports.py # all packages should be correctly installed
 
 5. Start sionna server
 ```
-cd ./ns3-sionna/sionna_server/
+cd ./ns3sionna/sionna_server/
 source sionna-venv/bin/activate
 python3 sionna_server.py
 ```

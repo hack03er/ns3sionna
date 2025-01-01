@@ -17,6 +17,9 @@ Sionna (https://nvlabs.github.io/sionna/) to the widely used ns-3 network simula
 </tr>
 </table>
 
+
+More information can be found in our paper: [Ns3Sionna paper](https://arxiv.org/abs/2412.20524)
+
 Installation
 ============
 

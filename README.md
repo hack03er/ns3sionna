@@ -92,13 +92,14 @@ How to reference ns3sionna?
 Please use the following bibtex:
 
 ```
-@misc{zubow2024ns3meetssionnausing,
-      title={Ns3 meets Sionna: Using Realistic Channels in Network Simulation}, 
-      author={Anatolij Zubow and Yannik Pilz and Sascha Rösler and Falko Dressler},
-      year={2024},
-      eprint={2412.20524},
-      archivePrefix={arXiv},
-      primaryClass={cs.NI},
-      url={https://arxiv.org/abs/2412.20524}, 
-}
+@techreport{zubow2024ns3-preprint,
+    author = {Zubow, Anatolij and Pilz, Yannik and R{\"{o}}sler, Sascha and Dressler, Falko},
+    doi = {10.48550/arXiv.2412.20524},
+    title = {{Ns3 meets Sionna: Using Realistic Channels in Network Simulation}},
+    institution = {arXiv},
+    month = {12},
+    number = {2412.20524},
+    type = {cs.NI},
+    year = {2024},
+   }
 ```

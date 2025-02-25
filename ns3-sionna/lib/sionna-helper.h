@@ -61,9 +61,9 @@ public:
   zmq::socket_t m_zmq_socket;
 
   // possible modes of operation
-  const int MODE_P2P = 1; // only a single P2P is computed within a single Sionna call
-  const int MODE_P2MP = 2; // a full P2MP (TX to all other RX nodes) is computed within a single Sionna call
-  const int MODE_P2MP_LAH = 3; // same as mode 2 but in addition also future not yet needed channels are computed
+  static const int MODE_P2P = 1; // only a single P2P is computed within a single Sionna call
+  static const int MODE_P2MP = 2; // a full P2MP (TX to all other RX nodes) is computed within a single Sionna call
+  static const int MODE_P2MP_LAH = 3; // same as mode 2 but in addition also future not yet needed channels are computed
 };
 } // namespace ns3
 

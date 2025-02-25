@@ -38,7 +38,7 @@ NS_LOG_COMPONENT_DEFINE("ExampleSionnaSpectrumModel");
 double get_center_freq(Ptr<NetDevice> nd)
 {
     Ptr<WifiPhy> wp = nd->GetObject<WifiNetDevice>()->GetPhy();
-    return wp->GetObject<SpectrumWifiPhy>()->GetCurrentInterface()->GetCenterFrequency() * 1e6;
+    return wp->GetObject<SpectrumWifiPhy>()->GetCurrentInterface()->GetCenterFrequencies().front() * 1e6;
 }
 
 int

@@ -33,7 +33,7 @@ SionnaMobilityModel::GetTypeId()
                           "The model indicates whether ConstantPositionMobilityModel "
                           "or RandomWalk2dMobilityModel is used",
                           EnumValue(SionnaMobilityModel::MODEL_CONSTANT_POSITION),
-                          MakeEnumAccessor(&SionnaMobilityModel::m_model),
+                          MakeEnumAccessor<SionnaMobilityModel::Model>(&SionnaMobilityModel::m_model),
                           MakeEnumChecker(SionnaMobilityModel::MODEL_CONSTANT_POSITION,
                                           "Constant Position",
                                           SionnaMobilityModel::MODEL_RANDOM_WALK,
@@ -42,7 +42,7 @@ SionnaMobilityModel::GetTypeId()
                           "The mode indicates the condition used to "
                           "change the current speed and direction",
                           EnumValue(SionnaMobilityModel::MODE_DISTANCE),
-                          MakeEnumAccessor(&SionnaMobilityModel::m_mode),
+                          MakeEnumAccessor<SionnaMobilityModel::Mode>(&SionnaMobilityModel::m_mode),
                           MakeEnumChecker(SionnaMobilityModel::MODE_DISTANCE,
                                           "Distance",
                                           SionnaMobilityModel::MODE_TIME,

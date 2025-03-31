@@ -28,14 +28,15 @@ We recommend using Linux (e.g. Ubuntu 22 or higher) and a multi-core/GPU compute
 1. Download ns3
 
 ```
-wget https://www.nsnam.org/releases/ns-allinone-3.43.tar.bz2
-tar xf ns-allinone-3.43.tar.bz2
-cd ns-allinone-3.43
+wget https://www.nsnam.org/releases/ns-allinone-3.44.tar.bz2
+tar xf ns-allinone-3.44.tar.bz2
+cd ns-allinone-3.44
 ```
 
 2. Download ns3-sionna
 
 ```
+cd ..
 git clone https://github.com/tkn-tub/ns3sionna.git
 cd ns3sionna/
 ./install_packages.sh
@@ -44,7 +45,7 @@ cd ns3sionna/
 
 3. Build everything in ns3
 ```
-cd ../ns-3.43/
+cd ../ns-3.44/
 ./ns3 configure -d debug --enable-examples
 ./ns3 build
 ```
@@ -65,9 +66,9 @@ source sionna-venv/bin/activate
 python3 sionna_server.py
 ```
 
-5. Start a ns-3 example script
+6. Start a ns-3 example script
 ```
-cd ns-3.43/
+cd ns-3.44/
 ./ns3 run scratch/ns3-sionna/example-sionna.cc
 ```
 

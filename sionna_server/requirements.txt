@@ -2,6 +2,5 @@ numpy==1.24.3
 matplotlib==3.7.1
 protobuf==4.*
 tensorflow==2.*
-mitsuba==3.6.4
-sionna==0.19.*
+sionna>=0.19.2,<1.0.0
 pyzmq==25.0.2

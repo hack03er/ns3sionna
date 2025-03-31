@@ -1,0 +1,6 @@
+sionna-venv/
+
+# Protobuf generated files
+message.pb.cc
+message.pb.h
+message_pb2.py

@@ -30,7 +30,7 @@ if gpus:
         print(e)
 tf.get_logger().setLevel('ERROR')
 
-from sionna.rt import load_scene, Transmitter, Receiver, PlanarArray, Camera
+from sionna.rt import load_scene, Transmitter, Receiver, PlanarArray, Camera, RIS
 from sionna.channel import cir_to_ofdm_channel, subcarrier_frequencies
 from sionna.rt.antenna import iso_pattern
 sionna.config.seed = 40
@@ -169,6 +169,15 @@ class SionnaEnv:
                     "last update": 0,
                     "delay left": 0
                 }
+
+        for ris_info in simulation_info.ris:
+            position = (ris_info.position.x, ris_info.position.y, ris_info.position.z)
+            lookAt = (ris_info.lookAt.x, ris_info.lookAt.y, ris_info.lookAt.z)
+            sionna_ris = RIS(name="ris" + str(ris_info.id),
+                             position=position,
+                             look_at=lookAt,
+                             num_rows=3, num_cols=3)
+            self.scene.add(sionna_ris)
 
         # create cache for mode 3
         for node_id in list(self.node_info_dict.keys()):

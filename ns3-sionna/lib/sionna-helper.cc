@@ -78,6 +78,12 @@ SionnaHelper::SetSubMode(int sub_mode)
 }
 
 void
+SionnaHelper::SetRIS(std::vector<std::shared_ptr<ns3::AbstractRisController>> ris_controllers)
+{
+    m_ris_controllers = ris_controllers;
+}
+
+void
 SionnaHelper::Configure(double frequency, double channel_bw)
 {
     SetFrequency(frequency);
@@ -138,6 +144,21 @@ SionnaHelper::Start()
     simulation_info->set_mode(m_mode);
     simulation_info->set_sub_mode(m_sub_mode);
 
+    for (size_t i = 0; i < m_ris_controllers.size(); ++i) {
+        ns3sionna::SimInitMessage::RISInfo *ris = simulation_info->add_ris();;
+        ris->set_id(i);
+
+        ns3sionna::Vector *pos_vector = ris->mutable_position();
+        pos_vector->set_x(ris->position().x());
+        pos_vector->set_y(ris->position().y());
+        pos_vector->set_z(ris->position().z());
+
+        ns3sionna::Vector *lookat_vector = ris->mutable_lookat();
+        lookat_vector->set_x(ris->lookat().x());
+        lookat_vector->set_y(ris->lookat().y());
+        lookat_vector->set_z(ris->lookat().z());
+    }
+
     NodeContainer c = NodeContainer::GetGlobal();
     for (auto iter = c.Begin(); iter != c.End(); ++iter)
     {
@@ -158,7 +179,7 @@ SionnaHelper::Start()
             {
                 ns3sionna::SimInitMessage::NodeInfo::RandomWalkModel* random_walk_model = node_info->mutable_random_walk_model();
                 
-                ns3sionna::SimInitMessage::NodeInfo::Vector* position_vector = random_walk_model->mutable_position();
+                ns3sionna::Vector* position_vector = random_walk_model->mutable_position();
                 position_vector->set_x(position.x);
                 position_vector->set_y(position.y);
                 position_vector->set_z(position.z);
@@ -186,7 +207,7 @@ SionnaHelper::Start()
             {
                 ns3sionna::SimInitMessage::NodeInfo::ConstantPositionModel* constant_position_model = node_info->mutable_constant_position_model();
                 
-                ns3sionna::SimInitMessage::NodeInfo::Vector* position_vector = constant_position_model->mutable_position();
+                ns3sionna::Vector* position_vector = constant_position_model->mutable_position();
                 position_vector->set_x(position.x);
                 position_vector->set_y(position.y);
                 position_vector->set_z(position.z);

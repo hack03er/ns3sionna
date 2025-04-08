@@ -10,6 +10,7 @@
 #define SIONNA_HELPER_H
 
 #include "message.pb.h"
+#include "sionna-ris-model.h"
 
 #include "ns3/ptr.h"
 #include "ns3/random-variable-stream.h"
@@ -40,6 +41,8 @@ public:
 
   void SetSubMode(int sub_mode);
 
+  void SetRIS(std::vector<std::shared_ptr<ns3::AbstractRisController>> ris_controllers);
+
   double GetNoiseFloor();
 
 private:
@@ -56,6 +59,7 @@ private:
   double m_channel_bw;
   int m_fft_size;
   double m_noiseDbm;
+  std::vector<std::shared_ptr<ns3::AbstractRisController>> m_ris_controllers;
 
 public:
   zmq::socket_t m_zmq_socket;

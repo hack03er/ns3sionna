@@ -29,6 +29,7 @@ add_library(
   lib/sionna-propagation-cache.cc
   lib/sionna-propagation-delay-model.cc
   lib/sionna-propagation-loss-model.cc
+  lib/sionna-ris-model.cc
 )
 
 # Link sionna library with ZeroMQ and Protobuf
@@ -96,4 +97,11 @@ build_exec(
   SOURCE_FILES example-optimized-sionna.cc
   LIBRARIES_TO_LINK sionna-lib ${libcore} ${ns3-libs} ${Protobuf_LIBRARIES} ${ZeroMQ_LIBRARIES}
   EXECUTABLE_DIRECTORY_PATH ${CMAKE_OUTPUT_DIRECTORY}/scratch/ns3-sionna
+)
+
+build_exec(
+        EXECNAME example-sionna-ris
+        SOURCE_FILES example-sionna-ris.cc
+        LIBRARIES_TO_LINK sionna-lib ${libcore} ${ns3-libs} ${Protobuf_LIBRARIES} ${ZeroMQ_LIBRARIES}
+        EXECUTABLE_DIRECTORY_PATH ${CMAKE_OUTPUT_DIRECTORY}/scratch/ns3-sionna
 )

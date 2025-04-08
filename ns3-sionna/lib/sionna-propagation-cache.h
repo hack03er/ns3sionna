@@ -24,6 +24,10 @@
 namespace ns3
 {
 
+/**
+ * @brief Layer between ns3 Channel and Sionna Channel,
+ * caching the results from Sionna and offering a certain coherence time
+ */
 class SionnaPropagationCache : public ns3::Object
 {
     public:
@@ -88,7 +92,7 @@ class SionnaPropagationCache : public ns3::Object
         mutable Cache m_cache;
         mutable double m_cache_hits;
         mutable double m_cache_miss;
-        bool m_optimize; // too far distance are not computed with raytracing
+        bool m_optimize; // too far distance is not computed with raytracing
         const double m_optimize_margin = 0;
         Ptr<FriisPropagationLossModel> m_friisLossModel;
         Ptr<ConstantSpeedPropagationDelayModel> m_constSpeedDelayModel;

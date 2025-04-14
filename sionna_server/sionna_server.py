@@ -33,6 +33,7 @@ tf.get_logger().setLevel('ERROR')
 from sionna.rt import load_scene, Transmitter, Receiver, PlanarArray, Camera
 from sionna.channel import cir_to_ofdm_channel, subcarrier_frequencies
 from sionna.rt.antenna import iso_pattern
+sionna.config.seed = 40
 
 class CacheEntry:
     def __init__(self, sim_time, ttl, value):

@@ -395,8 +395,15 @@ class SionnaEnv:
                 lnk_h_freq = h_freq.numpy()[:, tf_index, :, future_id, :, :, :]
                 lnk_tau = tau.numpy()[:, tf_index, future_id, :]
 
+                lnk_tau_wrapper = 0
+                try:
+                    lnk_tau_wrapper = np.min(lnk_tau[lnk_tau >= 0] * 1e9)
+                except:
+                    print("WEW WEW")
+                else:
+                    lnk_tau_wrapper = 0.0
                 # Calculate propagation delay and propagation loss
-                lnk_delay = int(round(np.min(lnk_tau[lnk_tau >= 0] * 1e9), 0))
+                lnk_delay = int(round(lnk_tau_wrapper, 0))
 
                 # see Parseval's theorem
                 lnk_loss = float(-10 * np.log10(tf.reduce_mean(tf.abs(lnk_h_freq) ** 2).numpy()))

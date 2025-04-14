@@ -43,7 +43,7 @@ main(int argc, char *argv[]) {
     bool verbose = true;
     bool tracing = true;
     bool caching = true;
-    std::string environment = "simple_room/simple_room.xml";
+    std::string environment = "wall/wall.xml";
     int wifi_channel_num = 6;
     int channel_width = 20; // 802.11g supports only 20MHz
 
@@ -75,8 +75,13 @@ main(int argc, char *argv[]) {
     NodeContainer wifiApNode;
     wifiApNode.Create(1);
 
+    Vector stat0_position = Vector(10, 3, 2);
+    Vector stat1_position = Vector(10, 7, 2);
+    Vector ap_position = Vector(6, 5, 2);
+     Vector ris_dir = (stat0_position + stat1_position) * 0.5;
+
     std::vector<std::shared_ptr<ns3::AbstractRisController>> ris_controllers;
-    ris_controllers.push_back(std::make_shared<PeriodicRisController>(Vector(0, 0, 0), Vector(5,2,1), 0));
+    ris_controllers.push_back(std::make_shared<PeriodicRisController>(Vector(14, 5, 2), ris_dir, 0));
 
     // Create a channel
     Ptr<YansWifiChannel> channel = CreateObject<YansWifiChannel>();
@@ -125,9 +130,9 @@ main(int argc, char *argv[]) {
     mobility.Install(wifiStaNodes);
     mobility.Install(wifiApNode);
 
-    wifiStaNodes.Get(0)->GetObject<MobilityModel>()->SetPosition(Vector(5.0, 2.05, 1.0));
-    wifiStaNodes.Get(1)->GetObject<MobilityModel>()->SetPosition(Vector(5.0, 1.95, 1.0));
-    wifiApNode.Get(0)->GetObject<MobilityModel>()->SetPosition(Vector(1.0, 2.0, 1.0));
+    wifiStaNodes.Get(0)->GetObject<MobilityModel>()->SetPosition(stat0_position);
+    wifiStaNodes.Get(1)->GetObject<MobilityModel>()->SetPosition(stat1_position);
+    wifiApNode.Get(0)->GetObject<MobilityModel>()->SetPosition(ap_position);
 
     // Set up Internet stack and assign IP addresses
     InternetStackHelper stack;

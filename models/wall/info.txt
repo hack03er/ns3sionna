@@ -1,0 +1,2 @@
+Wall: length: 5m, width: 0.3m, height: 6m
+Offset: [10, 5, 3]

@@ -158,7 +158,7 @@ SionnaHelper::Start()
             {
                 ns3sionna::SimInitMessage::NodeInfo::RandomWalkModel* random_walk_model = node_info->mutable_random_walk_model();
                 
-                ns3sionna::SimInitMessage::NodeInfo::Vector* position_vector = random_walk_model->mutable_position();
+                ns3sionna::Vector* position_vector = random_walk_model->mutable_position();
                 position_vector->set_x(position.x);
                 position_vector->set_y(position.y);
                 position_vector->set_z(position.z);
@@ -186,7 +186,7 @@ SionnaHelper::Start()
             {
                 ns3sionna::SimInitMessage::NodeInfo::ConstantPositionModel* constant_position_model = node_info->mutable_constant_position_model();
                 
-                ns3sionna::SimInitMessage::NodeInfo::Vector* position_vector = constant_position_model->mutable_position();
+                ns3sionna::Vector* position_vector = constant_position_model->mutable_position();
                 position_vector->set_x(position.x);
                 position_vector->set_y(position.y);
                 position_vector->set_z(position.z);

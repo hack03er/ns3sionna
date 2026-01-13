@@ -5,6 +5,16 @@ package ns3sionna;
 // Definition of messages used for IPC between NS3 and Sionna
 // author: Pilz, Zubow
 
+/*
+ * Represents a point or direction in 3D space.
+ * Used for positioning nodes and defining movement vectors.
+ */
+message Vector {
+    double x = 1;
+    double y = 2;
+    double z = 3;
+}
+
 message SimInitMessage {
     string scene_fname = 1; // the scene to be loaded
     int32 seed = 2; // random seed
@@ -17,12 +27,6 @@ message SimInitMessage {
     // each node is defined by ID, location and mobility model
     message NodeInfo {
         uint32 id = 1;
-        
-        message Vector {
-            double x = 1;
-            double y = 2;
-            double z = 3;
-        }
         
         // --- the mobility model --- //
 
@@ -97,24 +101,12 @@ message ChannelStateResponse {
         message TxNodeInfo {
             uint32 id = 1;
 
-            message Vector {
-                double x = 1;
-                double y = 2;
-                double z = 3;
-            }
-
             Vector position = 2;
         }
 
         // info for each rx node
         message RxNodeInfo {
             uint32 id = 1;
-
-            message Vector {
-                double x = 1;
-                double y = 2;
-                double z = 3;
-            }
 
             Vector position = 2;
 

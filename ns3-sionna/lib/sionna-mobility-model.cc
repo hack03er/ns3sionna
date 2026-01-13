@@ -78,6 +78,18 @@ SionnaMobilityModel::~SionnaMobilityModel()
 {
 }
 
+Ptr<MobilityModel> SionnaMobilityModel::Copy() const {
+  Ptr<SionnaMobilityModel> copy = CreateObject<SionnaMobilityModel>();
+  copy->m_model = this->m_model;
+  copy->m_mode = this->m_mode;
+  copy->m_modeTime = this->m_modeTime;
+  copy->m_modeDistance = this->m_modeDistance;
+  copy->m_speed = this->m_speed;
+  copy->m_direction = this->m_direction;
+  copy->m_position = this->m_position;
+  return copy;
+}
+
 std::string
 SionnaMobilityModel::GetModel() const
 {

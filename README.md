@@ -28,9 +28,9 @@ We recommend using Linux (e.g. Ubuntu 22 or higher) and a multi-core/GPU compute
 1. Download ns3
 
 ```
-wget https://www.nsnam.org/releases/ns-allinone-3.44.tar.bz2
-tar xf ns-allinone-3.44.tar.bz2
-cd ns-allinone-3.44
+wget https://www.nsnam.org/releases/ns-allinone-3.46.1.tar.bz2
+tar xf ns-allinone-3.46.1.tar.bz2
+cd ns-allinone-3.46.1
 ```
 
 2. Download ns3-sionna
@@ -45,7 +45,7 @@ cd ns3sionna/
 
 3. Build everything in ns3
 ```
-cd ../ns-3.44/
+cd ../ns-3.46.1/
 ./ns3 configure -d debug --enable-examples
 ./ns3 build
 ```

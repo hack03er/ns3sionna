@@ -37,6 +37,8 @@ class SionnaMobilityModel : public MobilityModel
             MODE_TIME
         };
 
+        Ptr<MobilityModel> Copy() const override;
+
         std::string GetModel() const;
 
         std::string GetMode() const;
